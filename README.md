@@ -1,6 +1,6 @@
-# Signage Times Co. website
+# Apex Signworks website
 
-A responsive marketing website for Arshi Javed / Signage Times Co., built with Next.js. It includes an editorial one-page layout, a projects section ready for photography, and an enquiry form that delivers leads by email through Resend.
+A responsive marketing website for Arshi Javed / Apex Signworks, built with Next.js. It includes an editorial one-page layout, a projects section ready for photography, and an enquiry form that delivers leads by email through Resend.
 
 ## Requirements
 
@@ -42,7 +42,7 @@ Copy `.env.example` to `.env.local`, then add your actual values. Never commit `
 ```env
 RESEND_API_KEY=re_your_actual_resend_api_key
 CONTACT_TO_EMAIL=your-email@example.com
-CONTACT_FROM_EMAIL=Signage Times <hello@yourdomain.com>
+CONTACT_FROM_EMAIL=Apex Signworks <hello@yourdomain.com>
 ```
 
 `CONTACT_FROM_EMAIL` must use a domain you have verified in Resend. The fallback sender (`onboarding@resend.dev`) is useful for testing, but can only send to the email address associated with the Resend account.
@@ -105,4 +105,4 @@ NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-XXXXXXXXXXXXXXXX
 - Verify the sending domain in Resend and test a real enquiry.
 - Add actual project images and alt text.
 - Add a privacy policy before enabling Analytics or AdSense.
-- Replace `https://signagetimes.co.in` in `app/layout.tsx` if the final domain differs.
+- Replace `https://apexsignworks.in` in `app/layout.tsx` if the final domain differs.

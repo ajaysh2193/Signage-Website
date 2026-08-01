@@ -3,9 +3,9 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Signage Times Co. | Signage & Branding, Delhi",
+  title: "Apex Signworks | Signage & Branding, Delhi",
   description: "Bespoke signage, branding and graphics by Arshi Javed in Delhi.",
-  metadataBase: new URL("https://signagetimes.co.in"),
+  metadataBase: new URL("https://apexsignworks.in"),
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

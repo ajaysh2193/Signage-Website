@@ -17,14 +17,20 @@ export async function POST(request: Request) {
       method: "POST",
       headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        from: process.env.CONTACT_FROM_EMAIL || "Signage Times Website <onboarding@resend.dev>",
+        from: process.env.CONTACT_FROM_EMAIL || "Apex Signworks Website <onboarding@resend.dev>",
         to: [to],
         reply_to: email || undefined,
         subject: `New website enquiry — ${name}`,
         text: `Name: ${name}\nPhone: ${phone}\nEmail: ${email || "Not provided"}\nProject type: ${projectType || "Not specified"}\n\nProject brief:\n${message}`,
       }),
     });
-    if (!response.ok) throw new Error("Resend rejected the message");
+    if (!response.ok) {
+      const detail = await response.json().catch(() => null) as { message?: string } | null;
+      return NextResponse.json(
+        { error: detail?.message || "Resend rejected the email. Check your sender address and API key." },
+        { status: 502 },
+      );
+    }
     return NextResponse.json({ message: "Thank you — your enquiry is on its way." });
   } catch {
     return NextResponse.json({ error: "We couldn’t send that right now. Please try again or call us." }, { status: 500 });
