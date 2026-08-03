@@ -46,7 +46,7 @@ export default function Home() {
 
     <section className="about section" id="about">
       <p className="eyebrow">01 — About the studio</p><div className="about-grid"><h2>A clear vision.<br /><em>Beautifully built.</em></h2><div><p className="large-copy">I’m Arshi Javed, a Delhi-based signage and graphic professional who believes a great sign should do more than look good—it should make your business unforgettable.</p><p>With a hands-on approach from first sketch to final installation, I create customised, practical and cost-conscious signage solutions. Every project comes with honest communication, thoughtful design and an eye for the details that help your brand get noticed.</p><p className="signature">Arshi Javed <span>Founder, Apex Signworks</span></p></div></div>
-      <div className="stats"><div><strong>100%</strong><span>transparent process</span></div><div><strong>End-to-end</strong><span>design & installation</span></div><div><strong>Delhi</strong><span>and beyond</span></div></div>
+      <div className="stats"><div><strong>100%</strong><span>transparent process</span></div><div><strong>End-to-end</strong><span>design & installation</span></div><div><strong>PAN India</strong><span>SERVICES</span></div></div>
     </section>
 
     <section className="services section"><p className="eyebrow">02 — What we do</p><div className="service-list">{services.map(([number,title,text]) => <article key={number}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div><b>↗</b></article>)}</div></section>
