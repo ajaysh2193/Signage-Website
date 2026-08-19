@@ -67,7 +67,7 @@ Replace the placeholder phone number, email address and Instagram link before pu
 
 ## Adding portfolio photos
 
-When project photos are available, add them to `public/projects/` (for example, `public/projects/retail-facade.jpg`) and use Next.js's `Image` component in the project cards in `app/page.tsx`.
+The current portfolio images are stored in `public/projects/` and rendered from the `projects` list in `app/page.tsx`. To add or replace work, put the new image in that folder and update its matching entry (`title`, `type`, `image`, and `alt`) in the list.
 
 Suggested workflow:
 

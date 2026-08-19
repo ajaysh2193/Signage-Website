@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Image from "next/image";
 
 const services = [
   ["01", "Signature signage", "Built-up letters, LED boards and storefront identities made to be noticed."],
@@ -8,7 +9,16 @@ const services = [
   ["03", "Design to install", "One accountable Delhi team—from concept and production to a precise, dependable installation."],
 ];
 
-const projects = ["Retail Facade", "Restaurant Identity", "Corporate Wayfinding", "Event & Exhibition", "Illuminated Letters", "In-store Graphics"];
+const projects = [
+  { title: "Triple 999", type: "Illuminated retail signage", image: "/projects/signage-02.jpg", alt: "Illuminated Triple 999 storefront sign" },
+  { title: "Triple 999", type: "Acrylic letter fabrication", image: "/projects/signage-03.jpg", alt: "Fabricated Triple 999 acrylic letters" },
+  { title: "Manyavar", type: "Retail facade branding", image: "/projects/signage-04.jpg", alt: "Illuminated Manyavar storefront facade" },
+  { title: "Collaboration", type: "3D illuminated letters", image: "/projects/signage-07.jpg", alt: "Collaboration Technology illuminated letters" },
+  { title: "LED Logo", type: "Backlit logo signage", image: "/projects/signage-08.jpg", alt: "Blue and white illuminated logo sign" },
+  { title: "Event installation", type: "Custom neon display", image: "/projects/signage-09.jpg", alt: "Heart-shaped neon event installation" },
+  { title: "Neon script", type: "Custom interior neon", image: "/projects/signage-11.jpg", alt: "Custom neon script signage in Hindi" },
+  { title: "Coffee neon", type: "Ambient wall signage", image: "/projects/signage-12.jpg", alt: "But first coffee neon wall sign" },
+];
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,21 +49,21 @@ export default function Home() {
     </header>
 
     <section className="hero" id="home">
-      <div className="hero-copy"><p className="eyebrow">Delhi · Signage & Branding</p><h1>Make your<br /><em>presence</em> felt.</h1><p className="intro">Apex Signworks creates memorable physical brand experiences for businesses ready to stand out.</p><a className="button" href="#contact">Start a project <span>↘</span></a></div>
+      <div className="hero-copy"><h1>Make your<br /><em>presence</em> felt.</h1><p className="intro">Apex Signworks creates memorable physical brand experiences for businesses ready to stand out.</p><a className="button" href="#contact">Start a project <span>↘</span></a></div>
       <div className="hero-art" aria-label="Abstract illuminated sign artwork"><div className="orb" /><div className="sign-shape"><span>A</span><span>S</span></div><p>DESIGNED<br />TO BE SEEN</p></div>
       <div className="scroll">SCROLL TO EXPLORE <b>↓</b></div>
     </section>
 
     <section className="about section" id="about">
-      <p className="eyebrow">01 — About the studio</p><div className="about-grid"><h2>A clear vision.<br /><em>Beautifully built.</em></h2><div><p className="large-copy">I’m Arshi Javed, a Delhi-based signage and graphic professional who believes a great sign should do more than look good—it should make your business unforgettable.</p><p>With a hands-on approach from first sketch to final installation, I create customised, practical and cost-conscious signage solutions. Every project comes with honest communication, thoughtful design and an eye for the details that help your brand get noticed.</p><p className="signature">Arshi Javed <span>Founder, Apex Signworks</span></p></div></div>
+      <p className="eyebrow">About the studio</p><div className="about-grid"><h2>A clear vision.<br /><em>Beautifully built.</em></h2><div><p className="large-copy">I’m Arshi Javed, a Delhi-based signage and graphic professional who believes a great sign should do more than look good—it should make your business unforgettable.</p><p>With a hands-on approach from first sketch to final installation, I create customised, practical and cost-conscious signage solutions. Every project comes with honest communication, thoughtful design and an eye for the details that help your brand get noticed.</p><p className="signature">Arshi Javed <span>Founder, Apex Signworks</span></p></div></div>
       <div className="stats"><div><strong>100%</strong><span>transparent process</span></div><div><strong>End-to-end</strong><span>design & installation</span></div><div><strong>PAN India</strong><span>SERVICES</span></div></div>
     </section>
 
-    <section className="services section"><p className="eyebrow">02 — What we do</p><div className="service-list">{services.map(([number,title,text]) => <article key={number}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div><b>↗</b></article>)}</div></section>
+    <section className="services section"><p className="eyebrow">What we do?</p><div className="service-list">{services.map(([number,title,text]) => <article key={number}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div><b>↗</b></article>)}</div></section>
 
-    <section className="work section" id="work"><div className="section-heading"><div><p className="eyebrow">03 — Selected work</p><h2>Built for a<br /><em>double take.</em></h2></div><p>Our project gallery is being prepared. A selection of our latest work will appear here soon.</p></div><div className="project-grid">{projects.map((project, index) => <article className={`project p${index + 1}`} key={project}><div><span>0{index + 1}</span><h3>{project}</h3><p>Project images coming soon</p></div><b>↗</b></article>)}</div></section>
+    <section className="work section" id="work"><div className="section-heading"><div><p className="eyebrow">Selected work</p><h2>Built for a<br /><em>double take.</em></h2></div><p>A selection of illuminated retail, facade and custom neon work by Apex Signworks.</p></div><div className="project-grid">{projects.map((project, index) => <article className="project" key={project.image}><Image className="project-image" src={project.image} alt={project.alt} fill sizes="(max-width: 720px) 45vw, 30vw" /><div><span>{String(index + 1).padStart(2, "0")}</span><h3>{project.title}</h3><p>{project.type}</p></div><b>↗</b></article>)}</div></section>
 
-    <section className="contact section" id="contact"><div className="contact-top"><div><p className="eyebrow">04 — Let’s create</p><h2>Have a space<br />to <em>transform?</em></h2></div><p>Tell us what you have in mind. We’ll get back to you with a clear next step.</p></div><div className="contact-grid"><form onSubmit={submit}><label>Your name<input required name="name" placeholder="Name" /></label><label>Phone number<input required name="phone" type="tel" placeholder="+91" /></label><label>Email address<input name="email" type="email" placeholder="you@company.com" /></label><label>What do you need?<select name="projectType" defaultValue=""><option value="" disabled>Select a service</option><option>Signage</option><option>Branding & graphics</option><option>Wayfinding</option><option>Something else</option></select></label><label className="message">Tell us a little about it<textarea required name="message" placeholder="Project, location, timeline..." /></label><button className="button" disabled={sending}>{sending ? "Sending…" : "Send enquiry"} <span>↗</span></button>{status && <p className="form-status" role="status">{status}</p>}</form><aside><p>Prefer to talk?</p><a href="tel:+919999999999">+91 99999 99999</a><a href="mailto:hello@apexsignworks.in">hello@apexsignworks.in</a><a className="instagram" href="https://instagram.com" target="_blank" rel="noreferrer">Instagram <span>↗</span></a></aside></div></section>
+    <section className="contact section" id="contact"><div className="contact-top"><div><p className="eyebrow">Let’s create</p><h2>Have a space<br />to <em>transform?</em></h2></div><p>Tell us what you have in mind. We’ll get back to you with a clear next step.</p></div><div className="contact-grid"><form onSubmit={submit}><label>Your name<input required name="name" placeholder="Name" /></label><label>Phone number<input required name="phone" type="tel" placeholder="+91" /></label><label>Email address<input name="email" type="email" placeholder="you@company.com" /></label><label>What do you need?<select name="projectType" defaultValue=""><option value="" disabled>Select a service</option><option>Signage</option><option>Branding & graphics</option><option>Wayfinding</option><option>Something else</option></select></label><label className="message">Tell us a little about it<textarea required name="message" placeholder="Project, location, timeline..." /></label><button className="button" disabled={sending}>{sending ? "Sending…" : "Send enquiry"} <span>↗</span></button>{status && <p className="form-status" role="status">{status}</p>}</form><aside><p>Prefer to talk?</p><a href="tel:+918882216708">+91 88822 16708</a><a href="mailto:hello@apexsignworks.in">hello@apexsignworks.in</a><a className="instagram" href="https://instagram.com" target="_blank" rel="noreferrer">Instagram <span>↗</span></a></aside></div></section>
     <footer><a className="brand" href="#home">APEX <span>SIGNWORKS</span></a><p>© {new Date().getFullYear()} Apex Signworks · Delhi</p><a href="#home">Back to top ↑</a></footer>
   </main>;
 }
